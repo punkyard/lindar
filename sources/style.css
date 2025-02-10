@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.calendar {
+    height: 100%;
+    overflow-x: auto;
+}
+
+.header {
+    display: flex;
+    border-bottom: 1px solid black;
+    position: sticky;
+    top: 0;
+    background: white;
+}
+
+.year-cell {
+    width: 64px;
+    padding: 8px;
+    border-right: 1px solid black;
+    text-align: center;
+    position: sticky;
+    left: 0;
+    background: white;
+}
+
+.weekdays {
+    display: flex;
+}
+
+.weekday {
+    width: 64px;
+    padding: 8px;
+    border-right: 1px solid black;
+    text-align: center;
+}
+
+.month-row {
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.month-name {
+    width: 64px;
+    padding: 8px;
+    border-right: 1px solid black;
+    text-align: center;
+    position: sticky;
+    left: 0;
+    background: white;
+}
+
+.days {
+    display: flex;
+}
+
+.day {
+    width: 64px;
+    padding: 8px;
+    border-right: 1px solid black;
+    text-align: right;
+}
