@@ -5,7 +5,8 @@ const weekdays = ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di'];
 // Ajoute les jours de la semaine dans l'en-tête
 function createWeekdaysHeader() {
     const weekdaysDiv = document.querySelector('.weekdays');
-    for (let i = 0; i < 31; i++) {
+    // On crée 42 colonnes (6 semaines * 7 jours) pour être sûr d'avoir assez de place
+    for (let i = 0; i < 42; i++) {
         const dayDiv = document.createElement('div');
         dayDiv.className = 'weekday';
         dayDiv.textContent = weekdays[i % 7];
@@ -45,7 +46,8 @@ function createMonthRows() {
         const daysInMonth = getDaysInMonth(monthIndex);
         const firstDayOffset = getFirstDayOffset(monthIndex);
         
-        for (let i = 0; i < 31; i++) {
+        // On crée 42 colonnes pour avoir 6 semaines complètes
+        for (let i = 0; i < 42; i++) {
             const dayDiv = document.createElement('div');
             dayDiv.className = 'day';
             if (i >= firstDayOffset && (i - firstDayOffset + 1) <= daysInMonth) {
