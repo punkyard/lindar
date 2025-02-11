@@ -35,6 +35,20 @@ body {
     background: #282A36;
     z-index: 3;
     box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.year-nav {
+    color: #757989;  /* Même couleur que mois/semaines */
+    cursor: pointer;
+    user-select: none;
+    padding: 0 4px;
+}
+
+.year-nav:hover {
+    color: #f8f8f2;  /* Plus clair au survol */
 }
 
 .weekdays {
@@ -46,6 +60,7 @@ body {
     min-width: 80px;
     width: 80px;
     padding: 8px;
+    color: #757989;
     text-align: center;
     box-sizing: border-box;
     background: #282A36;
@@ -65,14 +80,22 @@ body {
     text-align: center;
     position: sticky;
     left: 0;
+    color: #757989;
     background: #282A36;
     z-index: 1;
     box-sizing: border-box;
 }
 
+/* Colonne des mois avec fond plus clair */
+.month-name {
+
+}
+
 .days {
     display: flex;
     flex-shrink: 0;
+    color: #6272A4;  /* 40% plus clair que le fond */
+    font-size: 0.8em;  /* Police encore plus petite */
 }
 
 .day {
@@ -84,3 +107,13 @@ body {
     background: #282A36;
     font-size: 0.85em;
 }
+
+/* Weekend columns légèrement plus claires */
+.weekday:nth-child(7n+6),  /* Pour samedi (6e jour) */
+.weekday:nth-child(7n),    /* Pour dimanche (7e jour) */
+.day:nth-child(7n+6),      /* Pour samedi */
+.day:nth-child(7n) {       /* Pour dimanche */
+    background-color: #2F313F;
+}
+
+
