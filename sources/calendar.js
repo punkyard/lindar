@@ -1,6 +1,17 @@
 // calendar.js
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-const weekdays = ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa', 'Di'];
+const weekdays = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+let currentYear = 2025;
+
+function changeYear(delta) {
+    currentYear += delta;
+    document.querySelector('.year-number').textContent = currentYear;
+    // On vide et recrée le calendrier
+    document.querySelector('.months-container').innerHTML = '';
+    document.querySelector('.weekdays').innerHTML = '';
+    createWeekdaysHeader();
+    createMonthRows();
+}
 
 // Ajoute les jours de la semaine dans l'en-tête
 function createWeekdaysHeader() {
@@ -16,12 +27,12 @@ function createWeekdaysHeader() {
 
 // Calcule le nombre de jours dans un mois
 function getDaysInMonth(month) {
-    return new Date(2025, month + 1, 0).getDate();
+    return new Date(currentYear, month + 1, 0).getDate();
 }
 
 // Calcule le décalage du premier jour du mois
 function getFirstDayOffset(month) {
-    const day = new Date(2025, month, 1).getDay();
+    const day = new Date(currentYear, month, 1).getDay();
     return day === 0 ? 6 : day - 1;
 }
 
@@ -65,6 +76,13 @@ function createMonthRows() {
 function initCalendar() {
     createWeekdaysHeader();
     createMonthRows();
+    // Ajouter les écouteurs pour les flèches
+    document.querySelectorAll('.year-nav').forEach(nav => {
+        nav.addEventListener('click', function() {
+            const delta = this.textContent === '<' ? -1 : 1;
+            changeYear(delta);
+        });
+    });
 }
 
 // Lance l'initialisation quand la page est chargée
