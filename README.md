@@ -1,7 +1,7 @@
 # linDar
 _yet another yearly linear calendar_
 
-### ⚠️ early development stage
+### ⚠️ early development stage - student case
 
 ![linDar yearly concept](docs/linDar-illustration.webp)
 
